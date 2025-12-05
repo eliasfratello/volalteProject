@@ -1,0 +1,18 @@
+# Netlify - URLs limpias sin .html
+/servicios    /servicios.html    200
+/blog         /blog.html         200
+/contacto     /contacto.html     200
+/distribuidor /distribuidor.html 200
+/sobre-nosotros /sobre-nosotros.html 200
+
+# Blog articles
+/blog-exportar-africa           /blog-exportar-africa.html           200
+/blog-como-vender               /blog-como-vender.html               200
+/blog-neumaticos-reciclados-espana /blog-neumaticos-reciclados-espana.html 200
+/blog-donde-reciclar            /blog-donde-reciclar.html            200
+/blog-desafios-verano           /blog-desafios-verano.html           200
+/blog-exportacion-2025          /blog-exportacion-2025.html          200
+/blog-economia-circular         /blog-economia-circular.html         200
+/blog-wholesale                 /blog-wholesale.html                 200
+/blog-eco-wholesalers           /blog-eco-wholesalers.html           200
+

@@ -1,0 +1,11 @@
+# Apache - URLs limpias sin .html
+RewriteEngine On
+
+# Quitar .html de las URLs
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html [L]
+
+# Redirigir index.html a /
+RewriteRule ^index\.html$ / [R=301,L]
+
