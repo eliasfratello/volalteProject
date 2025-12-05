@@ -663,7 +663,7 @@ function initSmoothScroll() {
 // EmailJS Configuration
 const EMAILJS_PUBLIC_KEY = 'UqQnlJdYkpYIgQOrk';
 const EMAILJS_SERVICE_ID = 'service_2o4fvhh';
-const EMAILJS_TEMPLATE_ID = 'template_7tv1uaa';
+const EMAILJS_TEMPLATE_ID = 'template_lp7es7j';
 
 // Initialize EmailJS
 (function() {
