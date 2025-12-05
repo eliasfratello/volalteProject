@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Reciclaje Neumáticos Usados Barcelona | Volalte</title>
+    <link rel="icon" type="image/png" href="images/LogoTabular.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">Volalte</span>
+                <span class="logo-slogan" data-i18n="logo_slogan">Reciclaje de Neumáticos</span>
+            </a>
+            <nav class="nav-desktop">
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link" data-i18n="nav_inicio">Inicio</a></li>
+                    <li><a href="servicios.html" class="nav-link" data-i18n="nav_servicios">Servicios</a></li>
+                    <li><a href="blog.html" class="nav-link" data-i18n="nav_blog">Blog</a></li>
+                    <li><a href="contacto.html" class="nav-link active" data-i18n="nav_contacto">Contacto</a></li>
+                    <li><a href="sobre-nosotros.html" class="nav-link" data-i18n="nav_sobre">Sobre Nosotros</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <div class="language-selector" id="langSelector">
+                    <button class="lang-btn"><span class="lang-code">ES</span><span>Español</span><i class="fas fa-chevron-down"></i></button>
+                    <ul class="lang-dropdown">
+                        <li><a href="#" class="active" data-lang="es"><span class="lang-code">ES</span> Español</a></li>
+                        <li><a href="#" data-lang="ca"><span class="lang-code">CAT</span> Català</a></li>
+                        <li><a href="#" data-lang="fr"><span class="lang-code">FR</span> Français</a></li>
+                        <li><a href="#" data-lang="en"><span class="lang-code">EN</span> English</a></li>
+                    </ul>
+                </div>
+                <a href="contacto.html" class="btn btn-outline" data-i18n="btn_contactanos">Contáctanos</a>
+                <a href="distribuidor.html" class="btn btn-primary" data-i18n="btn_distribuidor">Conviértete en distribuidor</a>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+        <nav class="nav-mobile" id="navMobile">
+            <ul class="nav-menu-mobile">
+                <li><a href="index.html" data-i18n="nav_inicio">Inicio</a></li>
+                <li><a href="servicios.html" data-i18n="nav_servicios">Servicios</a></li>
+                <li><a href="blog.html" data-i18n="nav_blog">Blog</a></li>
+                <li><a href="contacto.html" data-i18n="nav_contacto">Contacto</a></li>
+                <li><a href="sobre-nosotros.html" data-i18n="nav_sobre">Sobre Nosotros</a></li>
+            </ul>
+            <div class="mobile-lang-selector">
+                <span data-i18n="mobile_lang">Idioma:</span>
+                <div class="mobile-lang-options">
+                    <a href="#" class="active" data-lang="es">ES</a>
+                    <a href="#" data-lang="ca">CAT</a>
+                    <a href="#" data-lang="fr">FR</a>
+                    <a href="#" data-lang="en">EN</a>
+                </div>
+            </div>
+            <div class="mobile-social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="page-hero contact-hero">
+        <div class="page-hero-bg"></div>
+        <div class="container">
+            <h1 data-i18n="cont_hero_title">Contacto Reciclaje Neumáticos Usados Barcelona</h1>
+            <p class="page-hero-text" data-i18n="cont_hero_desc">Estamos aquí para ayudarte. Contacta con nosotros para cualquier consulta sobre nuestros servicios de reciclaje y exportación de neumáticos.</p>
+        </div>
+    </section>
+
+    <section class="contact-page-section">
+        <div class="container">
+            <div class="contact-page-grid">
+                <div class="contact-form-card">
+                    <h2 data-i18n="cont_form_title">Para cualquier consulta, Escríbenos</h2>
+                    <form class="contact-form" id="contactForm" name="contacto-pagina" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                        <input type="hidden" name="form-name" value="contacto-pagina">
+                        <p class="hidden" style="display:none;"><label>No rellenar: <input name="bot-field"></label></p>
+                        <div class="form-group"><label for="nombre" data-i18n="form_name">Nombre</label><input type="text" id="nombre" name="nombre" required></div>
+                        <div class="form-group"><label for="telefono" data-i18n="form_phone">Número de teléfono</label><input type="tel" id="telefono" name="telefono"></div>
+                        <div class="form-group"><label for="email" data-i18n="form_email">Correo electrónico</label><input type="email" id="email" name="email" required></div>
+                        <div class="form-group">
+                            <label for="sujeto" data-i18n="form_subject">Asunto</label>
+                            <select id="sujeto" name="sujeto">
+                                <option value="" data-i18n="cont_form_select">Selecciona un asunto</option>
+                                <option value="recogida" data-i18n="cont_form_opt1">Solicitar recogida de neumáticos</option>
+                                <option value="compra" data-i18n="cont_form_opt2">Comprar neumáticos al por mayor</option>
+                                <option value="distribuidor" data-i18n="cont_form_opt3">Convertirme en distribuidor</option>
+                                <option value="exportacion" data-i18n="cont_form_opt4">Información sobre exportación</option>
+                                <option value="otro" data-i18n="cont_form_opt5">Otro</option>
+                            </select>
+                        </div>
+                        <div class="form-group full-width"><label for="mensaje" data-i18n="form_message">Mensaje</label><textarea id="mensaje" name="mensaje" rows="6" required></textarea></div>
+                        <button type="submit" class="btn btn-primary btn-full btn-lg"><i class="fas fa-paper-plane"></i> <span data-i18n="cont_form_submit">Enviar mensaje</span></button>
+                    </form>
+                </div>
+
+                <div class="contact-info-card">
+                    <div class="contact-info-block">
+                        <span class="section-badge" data-i18n="contact_badge">Habla con nuestros expertos hoy</span>
+                        <h2 data-i18n="contact_title">Te estamos esperando</h2>
+                        <p data-i18n="cta_desc">Nuestro equipo está aquí para ayudarte a elegir una solución profesional y legal para la gestión de tus neumáticos usados.</p>
+                    </div>
+                    <div class="contact-info-items">
+                        <div class="contact-info-item">
+                            <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+                            <div><h4 data-i18n="contact_phone">Ponerse en contacto</h4><a href="tel:+34682560479">+34 682 56 04 79</a></div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                            <div><h4 data-i18n="contact_email">Correo electrónico</h4><a href="mailto:gerencia@volalte.net">gerencia@volalte.net</a></div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div><h4 data-i18n="contact_location">Ubicación</h4><p>Carrer dels Blanquers<br>08788 Vilanova del Cami<br>Barcelona</p></div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-icon"><i class="fas fa-clock"></i></div>
+                            <div><h4 data-i18n="cont_hours_title">Horario de atención</h4><p data-i18n="cont_hours_text">Lunes - Viernes: 9:00 - 18:00<br>Sábado: 9:00 - 14:00</p></div>
+                        </div>
+                    </div>
+                    <div class="contact-social">
+                        <h4 data-i18n="cont_social_title">Síguenos en redes sociales</h4>
+                        <div class="social-buttons">
+                            <a href="#" class="social-btn facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-btn instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-btn linkedin"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="map-section">
+        <div class="container">
+            <h2 class="section-title center" data-i18n="map_title">Nuestra Ubicación</h2>
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2992.8547895632424!2d1.6303113!3d41.5697123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4860e6b3e6c5d%3A0x1234567890abcdef!2sCarrer%20dels%20Blanquers%2C%2008788%20Vilanova%20del%20Cam%C3%AD%2C%20Barcelona%2C%20Espa%C3%B1a!5e0!3m2!1ses!2ses!4v1701788400000!5m2!1ses!2ses"
+                    width="100%" 
+                    height="450" 
+                    style="border:0; border-radius:16px;" 
+                    allowfullscreen="" 
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-banner">
+        <div class="container">
+            <h2 data-i18n="cont_call_title">¿Prefieres llamarnos directamente?</h2>
+            <p data-i18n="cont_call_desc">Nuestro equipo está disponible para atenderte de lunes a viernes.</p>
+            <a href="tel:+34682560479" class="btn btn-white btn-lg"><i class="fas fa-phone"></i> +34 682 56 04 79</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4 data-i18n="footer_about">Sobre Nosotros</h4>
+                    <p data-i18n="footer_about_text">En Volalte, creemos que cuidar el planeta no debería ser un lujo, sino una responsabilidad compartida.</p>
+                    <a href="sobre-nosotros.html" class="footer-link" data-i18n="footer_more">Saber más</a>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer_pages">Páginas</h4>
+                    <ul class="footer-menu">
+                        <li><a href="index.html" data-i18n="nav_inicio">Inicio</a></li>
+                        <li><a href="servicios.html" data-i18n="nav_servicios">Servicios</a></li>
+                        <li><a href="blog.html" data-i18n="nav_blog">Blog</a></li>
+                        <li><a href="contacto.html" data-i18n="nav_contacto">Contacto</a></li>
+                        <li><a href="sobre-nosotros.html" data-i18n="nav_sobre">Sobre Nosotros</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer_hours">Horas de trabajo</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-map-marker-alt"></i> Carrer dels Blanquers, 08788 Vilanova del Cami, Barcelona</li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+34682560479">+34 682 56 04 79</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:gerencia@volalte.net">gerencia@volalte.net</a></li>
+                        <li><a href="contacto.html" class="footer-link" data-i18n="footer_quote">Pedir presupuesto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer_newsletter">Mantenerse en contacto</h4>
+                    <p data-i18n="footer_newsletter_text">Suscríbete a nuestra newsletter.</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" placeholder="Tu email" required>
+                        <button type="submit" data-i18n="footer_subscribe">Suscribirse</button>
+                    </form>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom"><p data-i18n="footer_copyright">© 2025 Volalte. Todos los derechos reservados.</p></div>
+        </div>
+    </footer>
+    <button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
+    <script src="script.js"></script>
+</body>
+</html>

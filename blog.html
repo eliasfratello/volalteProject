@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Noticias sobre Neumáticos Reciclados | Volalte</title>
+    <link rel="icon" type="image/png" href="images/LogoTabular.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">Volalte</span>
+                <span class="logo-slogan" data-i18n="logo_slogan">Reciclaje de Neumáticos</span>
+            </a>
+            <nav class="nav-desktop">
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link" data-i18n="nav_inicio">Inicio</a></li>
+                    <li><a href="servicios.html" class="nav-link" data-i18n="nav_servicios">Servicios</a></li>
+                    <li><a href="blog.html" class="nav-link active" data-i18n="nav_blog">Blog</a></li>
+                    <li><a href="contacto.html" class="nav-link" data-i18n="nav_contacto">Contacto</a></li>
+                    <li><a href="sobre-nosotros.html" class="nav-link" data-i18n="nav_sobre">Sobre Nosotros</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <div class="language-selector" id="langSelector">
+                    <button class="lang-btn"><span class="lang-code">ES</span><span>Español</span><i class="fas fa-chevron-down"></i></button>
+                    <ul class="lang-dropdown">
+                        <li><a href="#" class="active" data-lang="es"><span class="lang-code">ES</span> Español</a></li>
+                        <li><a href="#" data-lang="ca"><span class="lang-code">CAT</span> Català</a></li>
+                        <li><a href="#" data-lang="fr"><span class="lang-code">FR</span> Français</a></li>
+                        <li><a href="#" data-lang="en"><span class="lang-code">EN</span> English</a></li>
+                    </ul>
+                </div>
+                <a href="contacto.html" class="btn btn-outline" data-i18n="btn_contactanos">Contáctanos</a>
+                <a href="distribuidor.html" class="btn btn-primary" data-i18n="btn_distribuidor">Conviértete en distribuidor</a>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+        <nav class="nav-mobile" id="navMobile">
+            <ul class="nav-menu-mobile">
+                <li><a href="index.html" data-i18n="nav_inicio">Inicio</a></li>
+                <li><a href="servicios.html" data-i18n="nav_servicios">Servicios</a></li>
+                <li><a href="blog.html" data-i18n="nav_blog">Blog</a></li>
+                <li><a href="contacto.html" data-i18n="nav_contacto">Contacto</a></li>
+                <li><a href="sobre-nosotros.html" data-i18n="nav_sobre">Sobre Nosotros</a></li>
+            </ul>
+            <div class="mobile-lang-selector">
+                <span data-i18n="mobile_lang">Idioma:</span>
+                <div class="mobile-lang-options">
+                    <a href="#" class="active" data-lang="es">ES</a>
+                    <a href="#" data-lang="ca">CAT</a>
+                    <a href="#" data-lang="fr">FR</a>
+                    <a href="#" data-lang="en">EN</a>
+                </div>
+            </div>
+            <div class="mobile-social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="page-hero blog-hero">
+        <div class="page-hero-bg"></div>
+        <div class="container">
+            <h1 data-i18n="blog_hero_title">Blog</h1>
+            <p class="page-hero-text" data-i18n="blog_hero_desc">Descubre las últimas noticias, guías y tendencias sobre el reciclaje de neumáticos, exportación y economía circular en Europa, África y América Latina.</p>
+        </div>
+    </section>
+
+    <section class="blog-listing-section">
+        <div class="container">
+            <!-- Featured Article -->
+            <article class="blog-featured">
+                <div class="blog-featured-image">
+                    <img src="images/Asset-exportar noticia.webp" alt="Exportar neumáticos a África">
+                    <span class="blog-category">Destacado</span>
+                </div>
+                <div class="blog-featured-content">
+                    <div class="blog-meta">
+                        <span><i class="fas fa-user"></i> Administrador</span>
+                        <span><i class="fas fa-calendar"></i> octubre 21, 2025</span>
+                        <span><i class="fas fa-clock"></i> 8 min</span>
+                    </div>
+                    <h2>Exportar neumáticos usados a África (2025): guía completa</h2>
+                    <p>¿Buscas enviar contenedores de neumáticos usados desde España a África o LATAM? En esta guía completa te explicamos todo lo que necesitas saber sobre la exportación de neumáticos usados, desde la normativa hasta los destinos más demandados.</p>
+                    <a href="blog-exportar-africa.html" class="btn btn-primary"><span data-i18n="read_more">Leer artículo</span> <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- Blog Grid -->
+            <div class="blog-listing-grid">
+                <article class="blog-listing-card">
+                    <a href="blog-como-vender.html" class="blog-card-link">
+                        <div class="blog-listing-image">
+                            <img src="images/Asset-ruedas colocadas.webp" alt="Vender neumáticos">
+                        </div>
+                        <div class="blog-listing-content">
+                            <div class="blog-meta">
+                                <span><i class="fas fa-calendar"></i> agosto 15, 2025</span>
+                            </div>
+                            <h3>¿Cómo vender neumáticos usados o exportarlos?</h3>
+                            <span class="blog-tag-center">Negocio</span>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="blog-listing-card">
+                    <a href="blog-neumaticos-reciclados-espana.html" class="blog-card-link">
+                        <div class="blog-listing-image">
+                            <img src="images/Asset what.webp" alt="Reciclaje de neumáticos">
+                        </div>
+                        <div class="blog-listing-content">
+                            <div class="blog-meta">
+                                <span><i class="fas fa-calendar"></i> agosto 10, 2025</span>
+                            </div>
+                            <h3>¿Qué se hace con los neumáticos reciclados en España?</h3>
+                            <span class="blog-tag-center">Reciclaje</span>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="blog-listing-card">
+                    <a href="blog-donde-reciclar.html" class="blog-card-link">
+                        <div class="blog-listing-image">
+                            <img src="images/Asset-puntos de recogida.webp" alt="Puntos de recogida">
+                        </div>
+                        <div class="blog-listing-content">
+                            <div class="blog-meta">
+                                <span><i class="fas fa-calendar"></i> agosto 6, 2025</span>
+                            </div>
+                            <h3>¿Dónde puedo reciclar neumáticos usados cerca de mí?</h3>
+                            <span class="blog-tag-center">Guía</span>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="blog-listing-card">
+                    <a href="blog-desafios-verano.html" class="blog-card-link">
+                        <div class="blog-listing-image">
+                            <img src="images/Asset-desafios.webp" alt="Desafíos verano">
+                        </div>
+                        <div class="blog-listing-content">
+                            <div class="blog-meta">
+                                <span><i class="fas fa-calendar"></i> julio 25, 2025</span>
+                            </div>
+                            <h3>Los desafíos del reciclaje de neumáticos en verano</h3>
+                            <span class="blog-tag-center">Industria</span>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="blog-listing-card">
+                    <a href="blog-exportacion-2025.html" class="blog-card-link">
+                        <div class="blog-listing-image">
+                            <img src="images/Asset-exportacion.webp" alt="Exportación 2025">
+                        </div>
+                        <div class="blog-listing-content">
+                            <div class="blog-meta">
+                                <span><i class="fas fa-calendar"></i> julio 15, 2025</span>
+                            </div>
+                            <h3>Exportación de neumáticos usados en 2025: oportunidades clave</h3>
+                            <span class="blog-tag-center">Exportación</span>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="blog-listing-card">
+                    <a href="blog-economia-circular.html" class="blog-card-link">
+                        <div class="blog-listing-image">
+                            <img src="images/Asset-economia circular.webp" alt="Economía circular">
+                        </div>
+                        <div class="blog-listing-content">
+                            <div class="blog-meta">
+                                <span><i class="fas fa-calendar"></i> junio 20, 2025</span>
+                            </div>
+                            <h3>Cómo la economía circular revoluciona el reciclaje</h3>
+                            <span class="blog-tag-center">Sostenibilidad</span>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="blog-listing-card">
+                    <a href="blog-wholesale.html" class="blog-card-link">
+                        <div class="blog-listing-image">
+                            <img src="images/Asset bulk.webp" alt="Venta al por mayor">
+                        </div>
+                        <div class="blog-listing-content">
+                            <div class="blog-meta">
+                                <span><i class="fas fa-calendar"></i> mayo 15, 2025</span>
+                            </div>
+                            <h3>Neumáticos reciclados al por mayor: compra en grandes cantidades</h3>
+                            <span class="blog-tag-center">Mayorista</span>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="blog-listing-card">
+                    <a href="blog-eco-wholesalers.html" class="blog-card-link">
+                        <div class="blog-listing-image">
+                            <img src="images/Asset eco.webp" alt="Negocio ecológico">
+                        </div>
+                        <div class="blog-listing-content">
+                            <div class="blog-meta">
+                                <span><i class="fas fa-calendar"></i> abril 28, 2025</span>
+                            </div>
+                            <h3>Mayoristas ecológicos: negocio de reutilización de neumáticos</h3>
+                            <span class="blog-tag-center">Negocio</span>
+                        </div>
+                    </a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4 data-i18n="footer_about">Sobre Nosotros</h4>
+                    <p data-i18n="footer_about_text">En Volalte, creemos que cuidar el planeta no debería ser un lujo, sino una responsabilidad compartida.</p>
+                    <a href="sobre-nosotros.html" class="footer-link" data-i18n="footer_more">Saber más</a>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer_pages">Páginas</h4>
+                    <ul class="footer-menu">
+                        <li><a href="index.html" data-i18n="nav_inicio">Inicio</a></li>
+                        <li><a href="servicios.html" data-i18n="nav_servicios">Servicios</a></li>
+                        <li><a href="blog.html" data-i18n="nav_blog">Blog</a></li>
+                        <li><a href="contacto.html" data-i18n="nav_contacto">Contacto</a></li>
+                        <li><a href="sobre-nosotros.html" data-i18n="nav_sobre">Sobre Nosotros</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer_hours">Horas de trabajo</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-map-marker-alt"></i> Carrer dels Blanquers, 08788 Vilanova del Cami, Barcelona</li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+34682560479">+34 682 56 04 79</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:gerencia@volalte.net">gerencia@volalte.net</a></li>
+                        <li><a href="contacto.html" class="footer-link" data-i18n="footer_quote">Pedir presupuesto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer_newsletter">Mantenerse en contacto</h4>
+                    <p data-i18n="footer_newsletter_text">Suscríbete a nuestra newsletter.</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" placeholder="Tu email" required>
+                        <button type="submit" data-i18n="footer_subscribe">Suscribirse</button>
+                    </form>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom"><p data-i18n="footer_copyright">© 2025 Volalte. Todos los derechos reservados.</p></div>
+        </div>
+    </footer>
+    <button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
+    <script src="script.js"></script>
+</body>
+</html>
