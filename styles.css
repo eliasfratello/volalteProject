@@ -886,6 +886,26 @@ input, textarea {
 /* Hero Text */
 .hero-text {
     padding: var(--spacing-xl) 0;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .hero-text {
+        text-align: left;
+    }
+}
+
+.hero-text .btn {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .hero-text .btn {
+        display: inline-flex;
+        margin: 0;
+    }
 }
 
 .hero-title {
@@ -1160,6 +1180,16 @@ input, textarea {
     }
 }
 
+.cta-content {
+    text-align: center;
+}
+
+@media (min-width: 992px) {
+    .cta-content {
+        text-align: left;
+    }
+}
+
 .cta-content .section-badge {
     color: var(--primary-green);
 }
@@ -1181,6 +1211,19 @@ input, textarea {
     color: var(--gray);
     margin-bottom: var(--spacing-lg);
     line-height: 1.8;
+}
+
+.cta-content .btn {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+@media (min-width: 992px) {
+    .cta-content .btn {
+        display: inline-flex;
+        margin: 0;
+    }
 }
 
 /* Call Box */
