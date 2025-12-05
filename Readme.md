@@ -103,16 +103,3 @@ Luego visita `http://localhost:8000`
 | `--primary-green-light` | `#4CAF50` | Acentos |
 | `--dark` | `#1A1A2E` | Textos, fondos |
 | `--gray` | `#6B7280` | Texto secundario |
-
-## 📝 Cambios Recientes
-
-- ✅ Nombre cambiado de "Volaltegir" a "Volalte"
-- ✅ Añadido eslogan "Reciclaje de Neumáticos"
-- ✅ Email actualizado a contacto@volalte.net
-- ✅ Sistema de traducción multi-idioma funcional
-- ✅ Página de distribuidor separada de contacto
-- ✅ Mapa de Google Maps integrado en contacto
-
----
-
-*Creado con fines educativos y de desarrollo.*
