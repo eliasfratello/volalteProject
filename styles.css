@@ -1679,34 +1679,58 @@ input, textarea {
     max-width: 800px;
     margin: 0 auto var(--spacing-xl);
     color: rgba(255, 255, 255, 0.8);
-    font-size: 1.1rem;
+    font-size: 0.95rem;
+    padding: 0 var(--spacing-sm);
+}
+
+@media (min-width: 768px) {
+    .stats-description {
+        font-size: 1.1rem;
+        padding: 0;
+    }
 }
 
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-lg);
+    gap: var(--spacing-md);
+    padding: 0 var(--spacing-sm);
 }
 
 @media (min-width: 768px) {
     .stats-grid {
         grid-template-columns: repeat(4, 1fr);
+        gap: var(--spacing-lg);
+        padding: 0;
     }
 }
 
 .stat-item {
-    padding: var(--spacing-lg);
+    padding: var(--spacing-md);
     background: rgba(255, 255, 255, 0.05);
     border-radius: var(--radius-lg);
     border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .stat-item {
+        padding: var(--spacing-lg);
+    }
 }
 
 .stat-number {
     font-family: var(--font-primary);
-    font-size: 3rem;
+    font-size: 2.25rem;
     font-weight: 800;
     color: var(--primary-green-light);
     display: inline;
+}
+
+@media (min-width: 768px) {
+    .stat-number {
+        font-size: 3rem;
+    }
 }
 
 .stat-suffix {
