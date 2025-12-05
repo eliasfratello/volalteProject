@@ -669,75 +669,127 @@ const EMAILJS_TEMPLATE_ID = 'template_7tv1uaa';
 (function() {
     if (typeof emailjs !== 'undefined') {
         emailjs.init(EMAILJS_PUBLIC_KEY);
+        console.log('EmailJS inicializado correctamente');
     }
 })();
 
 function initForms() {
-    // Todos los formularios de contacto
-    document.querySelectorAll('form.contact-form').forEach(function(form) {
+    console.log('Inicializando formularios...');
+    
+    // FORMULARIO DE CONTACTO (index.html y contacto.html)
+    const contactForms = document.querySelectorAll('form.contact-form');
+    console.log('Formularios de contacto encontrados:', contactForms.length);
+    
+    contactForms.forEach(function(form, index) {
+        console.log('Configurando formulario de contacto #' + index);
+        
         form.addEventListener('submit', function(e) {
             e.preventDefault();
+            console.log('Formulario de contacto enviado');
             
-            // Obtener valores directamente de los campos
-            const nombre = this.querySelector('[name="nombre"]')?.value?.trim() || '';
-            const email = this.querySelector('[name="email"]')?.value?.trim() || '';
-            const telefono = this.querySelector('[name="telefono"]')?.value?.trim() || '-';
-            const sujeto = this.querySelector('[name="sujeto"]')?.value?.trim() || 'Mensaje desde web';
-            const mensaje = this.querySelector('[name="mensaje"]')?.value?.trim() || '-';
+            // Obtener valores usando getElementById primero, luego querySelector
+            let nombre = document.getElementById('nombre')?.value || '';
+            let email = document.getElementById('email')?.value || '';
+            let telefono = document.getElementById('telefono')?.value || '';
+            let sujeto = document.getElementById('sujeto')?.value || '';
+            let mensaje = document.getElementById('mensaje')?.value || '';
+            
+            // Si no funciona con getElementById, usar querySelector dentro del form
+            if (!nombre) nombre = form.querySelector('input[name="nombre"]')?.value || '';
+            if (!email) email = form.querySelector('input[name="email"]')?.value || '';
+            if (!telefono) telefono = form.querySelector('input[name="telefono"]')?.value || '';
+            if (!sujeto) sujeto = form.querySelector('select[name="sujeto"]')?.value || form.querySelector('input[name="sujeto"]')?.value || '';
+            if (!mensaje) mensaje = form.querySelector('textarea[name="mensaje"]')?.value || '';
+            
+            nombre = nombre.trim();
+            email = email.trim();
+            telefono = telefono.trim() || '-';
+            sujeto = sujeto.trim() || 'Mensaje desde web';
+            mensaje = mensaje.trim() || '-';
+            
+            console.log('Datos del formulario:', { nombre, email, telefono, sujeto, mensaje });
             
             // Validación
-            if (!nombre || !email) {
-                return showNotification(t('notif_form_error'), 'error');
+            if (!nombre || nombre === '') {
+                console.log('Error: nombre vacío');
+                return showNotification('Por favor, introduce tu nombre.', 'error');
+            }
+            if (!email || email === '') {
+                console.log('Error: email vacío');
+                return showNotification('Por favor, introduce tu email.', 'error');
             }
             if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-                return showNotification(t('notif_email_error'), 'error');
+                console.log('Error: email inválido');
+                return showNotification('Por favor, introduce un email válido.', 'error');
             }
             
             const data = { nombre, email, telefono, sujeto, mensaje };
-            submitFormEmailJS(this, data, t('notif_form_success'));
+            submitFormEmailJS(form, data, t('notif_form_success'));
         });
     });
     
-    // Newsletter
-    const news = document.getElementById('newsletterForm');
-    if (news) news.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const email = this.querySelector('input[type="email"]')?.value?.trim();
-        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-            return showNotification(t('notif_email_error'), 'error');
-        }
-        const data = { nombre: 'Suscriptor Newsletter', email: email, telefono: '-', sujeto: 'Nueva suscripción newsletter', mensaje: 'Nuevo suscriptor: ' + email };
-        submitFormEmailJS(this, data, t('notif_newsletter_success'));
-    });
+    // FORMULARIO DE DISTRIBUIDOR (distribuidor.html)
+    const distForm = document.getElementById('distributorForm');
+    if (distForm) {
+        console.log('Formulario de distribuidor encontrado');
+        
+        distForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            console.log('Formulario de distribuidor enviado');
+            
+            const empresa = document.getElementById('empresa')?.value?.trim() || '-';
+            const contacto = document.getElementById('contacto')?.value?.trim() || '-';
+            const email = document.getElementById('dist-email')?.value?.trim() || document.getElementById('email')?.value?.trim() || '-';
+            const telefono = document.getElementById('dist-telefono')?.value?.trim() || document.getElementById('telefono')?.value?.trim() || '-';
+            const pais = document.getElementById('pais')?.value?.trim() || '-';
+            const tipo = document.getElementById('tipo')?.value?.trim() || '-';
+            const volumen = document.getElementById('volumen')?.value?.trim() || '-';
+            const mensaje = document.getElementById('dist-mensaje')?.value?.trim() || document.getElementById('mensaje')?.value?.trim() || '-';
+            
+            console.log('Datos distribuidor:', { empresa, contacto, email });
+            
+            const data = {
+                nombre: contacto || 'Distribuidor',
+                email: email,
+                telefono: telefono,
+                sujeto: 'Solicitud de Distribuidor - ' + empresa,
+                mensaje: `Empresa: ${empresa}\nContacto: ${contacto}\nEmail: ${email}\nTeléfono: ${telefono}\nPaís: ${pais}\nTipo de negocio: ${tipo}\nVolumen estimado: ${volumen}\n\nMensaje: ${mensaje}`
+            };
+            submitFormEmailJS(this, data, t('notif_dist_success'));
+        });
+    }
     
-    // Formulario de distribuidor
-    const dist = document.getElementById('distributorForm');
-    if (dist) dist.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const empresa = this.querySelector('[name="empresa"]')?.value?.trim() || '-';
-        const contacto = this.querySelector('[name="contacto"]')?.value?.trim() || '-';
-        const email = this.querySelector('[name="email"]')?.value?.trim() || '-';
-        const telefono = this.querySelector('[name="telefono"]')?.value?.trim() || '-';
-        const pais = this.querySelector('[name="pais"]')?.value?.trim() || '-';
-        const tipo = this.querySelector('[name="tipo"]')?.value?.trim() || '-';
-        const volumen = this.querySelector('[name="volumen"]')?.value?.trim() || '-';
-        const mensaje = this.querySelector('[name="mensaje"]')?.value?.trim() || '-';
-        
-        const data = {
-            nombre: contacto || 'Distribuidor',
-            email: email,
-            telefono: telefono,
-            sujeto: 'Solicitud de Distribuidor - ' + empresa,
-            mensaje: `Empresa: ${empresa}\nContacto: ${contacto}\nEmail: ${email}\nTeléfono: ${telefono}\nPaís: ${pais}\nTipo de negocio: ${tipo}\nVolumen estimado: ${volumen}\n\nMensaje: ${mensaje}`
-        };
-        submitFormEmailJS(this, data, t('notif_dist_success'));
-    });
+    // NEWSLETTER
+    const newsForm = document.getElementById('newsletterForm');
+    if (newsForm) {
+        newsForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const emailInput = this.querySelector('input[type="email"]');
+            const email = emailInput?.value?.trim();
+            
+            if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                return showNotification('Por favor, introduce un email válido.', 'error');
+            }
+            
+            const data = { 
+                nombre: 'Suscriptor Newsletter', 
+                email: email, 
+                telefono: '-', 
+                sujeto: 'Nueva suscripción newsletter', 
+                mensaje: 'Nuevo suscriptor: ' + email 
+            };
+            submitFormEmailJS(this, data, t('notif_newsletter_success'));
+        });
+    }
 }
 
 function submitFormEmailJS(form, data, msg) {
-    const btn = form.querySelector('button[type="submit"]'), orig = btn.innerHTML;
-    btn.disabled = true; btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> ${t('notif_sending')}`;
+    const btn = form.querySelector('button[type="submit"]');
+    const orig = btn.innerHTML;
+    btn.disabled = true; 
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+    
+    console.log('Enviando a EmailJS:', data);
     
     // Enviar con EmailJS
     emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
@@ -754,7 +806,7 @@ function submitFormEmailJS(form, data, msg) {
     })
     .catch(function(error) {
         console.error('EmailJS Error:', error);
-        showNotification(t('notif_form_error'), 'error');
+        showNotification('Error al enviar. Inténtalo de nuevo.', 'error');
     })
     .finally(function() {
         btn.disabled = false;
