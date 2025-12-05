@@ -673,43 +673,65 @@ const EMAILJS_TEMPLATE_ID = 'template_7tv1uaa';
 })();
 
 function initForms() {
-    const contact = document.getElementById('contactForm');
-    if (contact) contact.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const fd = new FormData(this), d = Object.fromEntries(fd.entries());
-        if (!d.nombre || !d.email) return showNotification(t('notif_form_error'), 'error');
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)) return showNotification(t('notif_email_error'), 'error');
-        submitFormEmailJS(this, d, t('notif_form_success'));
+    // Todos los formularios de contacto
+    document.querySelectorAll('form.contact-form').forEach(function(form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Obtener valores directamente de los campos
+            const nombre = this.querySelector('[name="nombre"]')?.value?.trim() || '';
+            const email = this.querySelector('[name="email"]')?.value?.trim() || '';
+            const telefono = this.querySelector('[name="telefono"]')?.value?.trim() || '-';
+            const sujeto = this.querySelector('[name="sujeto"]')?.value?.trim() || 'Mensaje desde web';
+            const mensaje = this.querySelector('[name="mensaje"]')?.value?.trim() || '-';
+            
+            // Validación
+            if (!nombre || !email) {
+                return showNotification(t('notif_form_error'), 'error');
+            }
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                return showNotification(t('notif_email_error'), 'error');
+            }
+            
+            const data = { nombre, email, telefono, sujeto, mensaje };
+            submitFormEmailJS(this, data, t('notif_form_success'));
+        });
     });
+    
+    // Newsletter
     const news = document.getElementById('newsletterForm');
     if (news) news.addEventListener('submit', function(e) {
         e.preventDefault();
-        const email = this.querySelector('input[type="email"]')?.value;
-        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return showNotification(t('notif_email_error'), 'error');
+        const email = this.querySelector('input[type="email"]')?.value?.trim();
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            return showNotification(t('notif_email_error'), 'error');
+        }
         const data = { nombre: 'Suscriptor Newsletter', email: email, telefono: '-', sujeto: 'Nueva suscripción newsletter', mensaje: 'Nuevo suscriptor: ' + email };
         submitFormEmailJS(this, data, t('notif_newsletter_success'));
     });
+    
+    // Formulario de distribuidor
     const dist = document.getElementById('distributorForm');
     if (dist) dist.addEventListener('submit', function(e) {
         e.preventDefault();
-        const fd = new FormData(this), d = Object.fromEntries(fd.entries());
+        
+        const empresa = this.querySelector('[name="empresa"]')?.value?.trim() || '-';
+        const contacto = this.querySelector('[name="contacto"]')?.value?.trim() || '-';
+        const email = this.querySelector('[name="email"]')?.value?.trim() || '-';
+        const telefono = this.querySelector('[name="telefono"]')?.value?.trim() || '-';
+        const pais = this.querySelector('[name="pais"]')?.value?.trim() || '-';
+        const tipo = this.querySelector('[name="tipo"]')?.value?.trim() || '-';
+        const volumen = this.querySelector('[name="volumen"]')?.value?.trim() || '-';
+        const mensaje = this.querySelector('[name="mensaje"]')?.value?.trim() || '-';
+        
         const data = {
-            nombre: d.contacto || d.nombre || 'Distribuidor',
-            email: d.email || '-',
-            telefono: d.telefono || '-',
-            sujeto: 'Solicitud de Distribuidor - ' + (d.empresa || 'Nueva empresa'),
-            mensaje: `Empresa: ${d.empresa || '-'}\nContacto: ${d.contacto || '-'}\nPaís: ${d.pais || '-'}\nTipo de negocio: ${d.tipo || '-'}\nVolumen estimado: ${d.volumen || '-'}\n\nMensaje: ${d.mensaje || '-'}`
+            nombre: contacto || 'Distribuidor',
+            email: email,
+            telefono: telefono,
+            sujeto: 'Solicitud de Distribuidor - ' + empresa,
+            mensaje: `Empresa: ${empresa}\nContacto: ${contacto}\nEmail: ${email}\nTeléfono: ${telefono}\nPaís: ${pais}\nTipo de negocio: ${tipo}\nVolumen estimado: ${volumen}\n\nMensaje: ${mensaje}`
         };
         submitFormEmailJS(this, data, t('notif_dist_success'));
-    });
-    
-    // Contact page form
-    const contactPage = document.getElementById('contactPageForm');
-    if (contactPage) contactPage.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const fd = new FormData(this), d = Object.fromEntries(fd.entries());
-        if (!d.nombre || !d.email) return showNotification(t('notif_form_error'), 'error');
-        submitFormEmailJS(this, d, t('notif_form_success'));
     });
 }
 
