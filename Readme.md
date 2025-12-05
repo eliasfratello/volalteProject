@@ -1,6 +1,6 @@
-# Volalte - Reciclaje de Neumáticos
+# Volalte Gir - Reciclaje de Neumáticos
 
-Sitio web completo para **Volalte**, empresa especializada en neumáticos reciclados al por mayor con sede en Barcelona.
+Sitio web completo para **Volalte Gir**, empresa especializada en neumáticos reciclados al por mayor con sede en Barcelona.
 
 ## 📁 Estructura del Proyecto
 
@@ -47,7 +47,7 @@ El sitio incluye un **sistema de traducción completo** que cambia todo el texto
 ## ✨ Características
 
 ### Marca
-- **Nombre**: Volalte
+- **Nombre**: Volalte Gir
 - **Eslogan**: "Reciclaje de Neumáticos"
 - **Email**: contacto@volalte.net
 - **Teléfono**: +34 682 56 04 79
