@@ -1,0 +1,11 @@
+# Robots.txt para Volalte Gir
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://volalte.net/sitemap.xml
+
+# Bloquear archivos innecesarios
+Disallow: /*.css$
+Disallow: /*.js$
+
