@@ -660,6 +660,18 @@ function initSmoothScroll() {
     });
 }
 
+// EmailJS Configuration
+const EMAILJS_PUBLIC_KEY = 'UqQnlJdYkpYIgQOrk';
+const EMAILJS_SERVICE_ID = 'service_2o4fvhh';
+const EMAILJS_TEMPLATE_ID = 'template_7tv1uaa';
+
+// Initialize EmailJS
+(function() {
+    if (typeof emailjs !== 'undefined') {
+        emailjs.init(EMAILJS_PUBLIC_KEY);
+    }
+})();
+
 function initForms() {
     const contact = document.getElementById('contactForm');
     if (contact) contact.addEventListener('submit', function(e) {
@@ -667,45 +679,62 @@ function initForms() {
         const fd = new FormData(this), d = Object.fromEntries(fd.entries());
         if (!d.nombre || !d.email) return showNotification(t('notif_form_error'), 'error');
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)) return showNotification(t('notif_email_error'), 'error');
-        submitForm(this, t('notif_form_success'));
+        submitFormEmailJS(this, d, t('notif_form_success'));
     });
     const news = document.getElementById('newsletterForm');
     if (news) news.addEventListener('submit', function(e) {
         e.preventDefault();
         const email = this.querySelector('input[type="email"]')?.value;
         if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return showNotification(t('notif_email_error'), 'error');
-        submitForm(this, t('notif_newsletter_success'));
+        const data = { nombre: 'Suscriptor Newsletter', email: email, telefono: '-', sujeto: 'Nueva suscripción newsletter', mensaje: 'Nuevo suscriptor: ' + email };
+        submitFormEmailJS(this, data, t('notif_newsletter_success'));
     });
     const dist = document.getElementById('distributorForm');
     if (dist) dist.addEventListener('submit', function(e) {
         e.preventDefault();
-        submitForm(this, t('notif_dist_success'));
+        const fd = new FormData(this), d = Object.fromEntries(fd.entries());
+        const data = {
+            nombre: d.contacto || d.nombre || 'Distribuidor',
+            email: d.email || '-',
+            telefono: d.telefono || '-',
+            sujeto: 'Solicitud de Distribuidor - ' + (d.empresa || 'Nueva empresa'),
+            mensaje: `Empresa: ${d.empresa || '-'}\nContacto: ${d.contacto || '-'}\nPaís: ${d.pais || '-'}\nTipo de negocio: ${d.tipo || '-'}\nVolumen estimado: ${d.volumen || '-'}\n\nMensaje: ${d.mensaje || '-'}`
+        };
+        submitFormEmailJS(this, data, t('notif_dist_success'));
+    });
+    
+    // Contact page form
+    const contactPage = document.getElementById('contactPageForm');
+    if (contactPage) contactPage.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const fd = new FormData(this), d = Object.fromEntries(fd.entries());
+        if (!d.nombre || !d.email) return showNotification(t('notif_form_error'), 'error');
+        submitFormEmailJS(this, d, t('notif_form_success'));
     });
 }
 
-function submitForm(form, msg) {
+function submitFormEmailJS(form, data, msg) {
     const btn = form.querySelector('button[type="submit"]'), orig = btn.innerHTML;
     btn.disabled = true; btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> ${t('notif_sending')}`;
     
-    // Enviar a Netlify Forms
-    fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(new FormData(form)).toString()
+    // Enviar con EmailJS
+    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+        nombre: data.nombre || '-',
+        email: data.email || '-',
+        telefono: data.telefono || '-',
+        sujeto: data.sujeto || 'Mensaje desde web',
+        mensaje: data.mensaje || '-'
     })
-    .then(response => {
-        if (response.ok) {
-            showNotification(msg, 'success');
-            form.reset();
-        } else {
-            showNotification(t('notif_form_error'), 'error');
-        }
+    .then(function(response) {
+        console.log('EmailJS Success:', response);
+        showNotification(msg, 'success');
+        form.reset();
     })
-    .catch(error => {
-        console.error('Error:', error);
+    .catch(function(error) {
+        console.error('EmailJS Error:', error);
         showNotification(t('notif_form_error'), 'error');
     })
-    .finally(() => {
+    .finally(function() {
         btn.disabled = false;
         btn.innerHTML = orig;
     });
