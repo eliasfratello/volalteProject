@@ -4098,6 +4098,10 @@ input, textarea {
     .dist-form-grid {
         grid-template-columns: 1fr 1fr;
     }
+    
+    .dist-form-grid .form-group:last-child {
+        grid-column: span 2;
+    }
 }
 
 .dist-form .form-group {
